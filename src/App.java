@@ -1,4 +1,4 @@
-import Materia.GenericQeue;
+import Materia.Cola.GenericQeue;
 import Materia.Cola.Queues;
 import Materia.Models.Windows;
 import Pilas.GenericStack;
