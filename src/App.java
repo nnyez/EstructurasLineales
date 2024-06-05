@@ -1,3 +1,5 @@
+import Materia.GenericQeue;
+import Materia.Cola.Queues;
 import Materia.Models.Windows;
 import Pilas.GenericStack;
 import Pilas.Pila;
@@ -16,26 +18,55 @@ public class App {
         pila.push(23);
         pila.push(47);
         pila.push(55);
+
+        System.out.println("Elemento en la cima de la pila es: " + pila.peek());
+        System.out.println("Elemento eliminado de la pila ess: " + pila.pop());
+        System.out.println("Elemento en la cima de la pila es: " + pila.peek());
+
+        System.out.println();
+
+        /// implementaciom de pila generica
+        GenericStack<Windows> pilaPantalla = new GenericStack<>();
+        pilaPantalla.push(new Windows("Home Page", "/home"));
+        pilaPantalla.push(new Windows("Menu Page", "/home/menu"));
+        pilaPantalla.push(new Windows("Setting Page", "/home/menu/settings"));
+
+        System.out.println("Estoy en la pantalla: \n\t -->" + pilaPantalla.peek().getNombre());
+        System.out.println("Destruir la pantalla: \n\t -->" + pilaPantalla.pop().getNombre());
+        System.out.println("Estoy en la pantalla: \n\t -->" + pilaPantalla.peek().getNombre());
+        pilaPantalla.push(new Windows("User Page", "/home/menu/user"));
+        System.out.println("Estoy en la pantalla: \n\t -->" + pilaPantalla.peek().getNombre());
+        System.out.println();
+        // Implementacion colas
+        Queues colas = new Queues();
+        colas.addNode(8);
+        colas.addNode(89);
+        colas.addNode(100);
+
+        System.out.println("El elemento del frente es: "+colas.peek());
+        System.out.println("El elemento retirado es: "+colas.remove());
+        System.out.println("El elemento del frente es: "+colas.peek());
         
-        System.out.println("Elemento en la cima de la pila es: "+ pila.peek());
-        System.out.println("Elemento eliminado de la pila ess: "+ pila.pop());
-        System.out.println("Elemento en la cima de la pila es: "+ pila.peek());
+        System.out.println("El elemento retirado es: "+colas.remove());
+        System.out.println("El elemento del frente es: "+colas.peek());
+        
+        System.out.println("¿Cola vacia? "+(colas.isEmpty()?"Si":"No"));
+        System.out.println("El tamaño de la cola es: "+ colas.getSize());
+        System.out.println();
+        //implementacion cola generica
 
-    System.out.println();
-    
-    ///implementaciom de pila generica
-       GenericStack<Windows> pilaPantalla = new GenericStack<>();
-       pilaPantalla.push(new Windows("Home Page", "/home"));
-       pilaPantalla.push(new Windows("Menu Page", "/home/menu"));
-       pilaPantalla.push(new Windows("Setting Page", "/home/menu/settings"));
+        GenericQeue<Windows> colaPantalla = new GenericQeue<>();
+        colaPantalla.addNode(new Windows("Home Page","/home"));
+        colaPantalla.addNode(new Windows("Menu Page", "/home/menu"));
+        colaPantalla.addNode(new Windows("Setting Page","/homw/menu/settings"));
 
-       
-       System.out.println("Estoy en la pantalla: \n\t -->"+ pilaPantalla.peek().getNombre());
-       System.out.println("Destruir la pantalla: \n\t -->"+ pilaPantalla.pop().getNombre());
-       System.out.println("Estoy en la pantalla: \n\t -->"+ pilaPantalla.peek().getNombre());
-       pilaPantalla.push(new Windows("User Page", "/home/menu/user"));
-       System.out.println("Estoy en la pantalla: \n\t -->"+ pilaPantalla.peek().getNombre());
+        System.out.println("Estoy en la pantalla: \n\t -->" + colaPantalla.peek().getNombre());
+        System.out.println("Destruir la pantalla: \n\t -->"+ colaPantalla.remove().getNombre());
+        System.out.println("Estoy en la pantalla: \n\t -->" + colaPantalla.peek().getNombre());
+        colaPantalla.addNode(new Windows("User Page", "/home/menu/user"));
+        System.out.println("Estoy en la pantalla: \n\t -->" + colaPantalla.peek().getNombre());
 
+        System.out.println("El tamaño de la cola es: "+ colaPantalla.getSize());
 
     }
 }
