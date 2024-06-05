@@ -1,4 +1,4 @@
-package Materia.Cola;
+package Cola;
 
 import java.util.NoSuchElementException;
 
