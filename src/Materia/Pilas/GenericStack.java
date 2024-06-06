@@ -1,4 +1,4 @@
-package Pilas;
+package Materia.Pilas;
 
 import java.util.EmptyStackException;
 
@@ -6,6 +6,7 @@ import Materia.Models.GenericNode;
 
 public class GenericStack<T> {
     private GenericNode<T> top;
+    private int size;
 
     public GenericStack() {
         top = null;
@@ -16,6 +17,7 @@ public class GenericStack<T> {
         GenericNode<T> node = new GenericNode<T>(value);
         node.next = top;
         top = node;
+        size++;
     }
 
     public T pop() {
@@ -23,12 +25,12 @@ public class GenericStack<T> {
             System.out.println("La pila esta vacia");
 
             throw new EmptyStackException();
-        } 
-            T value = top.value;
-            top = top.next;
+        }
+        T value = top.value;
+        top = top.next;
+        size--;
+        return value;
 
-            return value;
-        
     }
 
     public T peek() {
@@ -44,4 +46,7 @@ public class GenericStack<T> {
         return top == null;
     }
 
+    public int getSize(){
+        return size;
+    }
 }

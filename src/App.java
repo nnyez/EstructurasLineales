@@ -1,8 +1,10 @@
-import Cola.GenericQeue;
-import Cola.Queues;
+import Ejercicio_01_sign.SignValidator;
+import Ejercicio_02_sorting.StackSorter;
+import Materia.Cola.GenericQeue;
+import Materia.Cola.Queues;
 import Materia.Models.Windows;
-import Pilas.GenericStack;
-import Pilas.Pila;
+import Materia.Pilas.GenericStack;
+import Materia.Pilas.Pila;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -43,30 +45,45 @@ public class App {
         colas.addNode(89);
         colas.addNode(100);
 
-        System.out.println("El elemento del frente es: "+colas.peek());
-        System.out.println("El elemento retirado es: "+colas.remove());
-        System.out.println("El elemento del frente es: "+colas.peek());
-        
-        System.out.println("El elemento retirado es: "+colas.remove());
-        System.out.println("El elemento del frente es: "+colas.peek());
-        
-        System.out.println("¿Cola vacia? "+(colas.isEmpty()?"Si":"No"));
-        System.out.println("El tamaño de la cola es: "+ colas.getSize());
+        System.out.println("El elemento del frente es: " + colas.peek());
+        System.out.println("El elemento retirado es: " + colas.remove());
+        System.out.println("El elemento del frente es: " + colas.peek());
+
+        System.out.println("El elemento retirado es: " + colas.remove());
+        System.out.println("El elemento del frente es: " + colas.peek());
+
+        System.out.println("¿Cola vacia? " + (colas.isEmpty() ? "Si" : "No"));
+        System.out.println("El tamaño de la cola es: " + colas.getSize());
         System.out.println();
-        //implementacion cola generica
+        // implementacion cola generica
 
         GenericQeue<Windows> colaPantalla = new GenericQeue<>();
-        colaPantalla.addNode(new Windows("Home Page","/home"));
+        colaPantalla.addNode(new Windows("Home Page", "/home"));
         colaPantalla.addNode(new Windows("Menu Page", "/home/menu"));
-        colaPantalla.addNode(new Windows("Setting Page","/homw/menu/settings"));
+        colaPantalla.addNode(new Windows("Setting Page", "/homw/menu/settings"));
 
         System.out.println("Estoy en la pantalla: \n\t -->" + colaPantalla.peek().getNombre());
-        System.out.println("Destruir la pantalla: \n\t -->"+ colaPantalla.remove().getNombre());
+        System.out.println("Destruir la pantalla: \n\t -->" + colaPantalla.remove().getNombre());
         System.out.println("Estoy en la pantalla: \n\t -->" + colaPantalla.peek().getNombre());
         colaPantalla.addNode(new Windows("User Page", "/home/menu/user"));
         System.out.println("Estoy en la pantalla: \n\t -->" + colaPantalla.peek().getNombre());
 
-        System.out.println("El tamaño de la cola es: "+ colaPantalla.getSize());
+        System.out.println("El tamaño de la cola es: " + colaPantalla.getSize());
 
+        SignValidator s = new SignValidator();
+        System.out.println(
+                s.isValid("()({[]})"));
+        StackSorter st = new StackSorter();
+        Pila f = new Pila();
+        f.push(5);
+        f.push(51);
+        f.push(0);
+        f.push(41);
+        f.push(11);
+        f.push(23);
+        f.push(23);
+        f.push(47);
+        f.push(55);
+        st.sortStack(f);
     }
 }
