@@ -9,34 +9,40 @@ public class StackSorter {
     public void sortStack(Pila stack) {
         Pila resultStack = new Pila();
         Pila aux = new Pila();
+        boolean flag = false;
 
         while (!stack.isEmpty()) {
 
-            if (resultStack.isEmpty()) {
+            if (resultStack.isEmpty() && aux.isEmpty()) {
                 resultStack.push(stack.pop());
             } else {
 
                 try {
-                    if (resultStack.peek() >= stack.peek()) {
-                        aux.push(resultStack.pop());
+                    if (resultStack.isEmpty() || resultStack.peek() >= stack.peek()) {
+                        flag = true;
                     } else {
-                        resultStack.push(stack.pop());
-                        while (!aux.isEmpty()) {
-                            resultStack.push(aux.pop());
-                        }
+                        aux.push(resultStack.pop());
                     }
-
                 } catch (Exception e) {
-                    System.out.println("No existe");
+
+                }
+                if (flag == true) {
+                    resultStack.push(stack.pop());
+                    while (!aux.isEmpty()) {
+                        resultStack.push(aux.pop());
+                    }
+                    flag=false;
                 }
 
             }
 
         }
+        System.out.println();
+
         while (!resultStack.isEmpty())
 
         {
-            System.out.println(resultStack.pop());
+            System.out.print(resultStack.pop() + (resultStack.isEmpty() ? "" : "-"));
         }
 
     }
