@@ -99,14 +99,10 @@ public class App {
 
         System.out.println();
 
-        LinkedListEjr lista = new LinkedListEjr();
-        lista.addNode(1);
-        lista.addNode(2);
-        lista.addNode(5);
-        lista.addNode(7);
-        lista.addNode(6);
+        LinkedListEjr linkedListEjr = new LinkedListEjr();
+  
 
-        System.out.println("El valor en la pos: " + lista.getByPos(1));
+        System.out.println("El valor en la pos: " + linkedListEjr.getByPos(1));
 
     }
 }

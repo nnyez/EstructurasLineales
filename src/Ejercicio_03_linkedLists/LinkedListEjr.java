@@ -1,76 +1,26 @@
 package Ejercicio_03_linkedLists;
 
+import Materia.ListasEnlazadas.ListaEnlazada;
 import Materia.Models.Node;
 
 public class LinkedListEjr {
 
-    public Node head;
-    private int size;
+    private ListaEnlazada lista;
 
     public LinkedListEjr() {
-
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    // Agregar nodos a la lista
-    public void addNode(int value) {
-        if (head == null) {
-            head = new Node(value);
-            return;
-        }
-
-        Node current = head;
-        while (current.next != null) {
-            current = current.next;
-        }
-
-        current.next = new Node(value);
-        size++;
-
-    }
-
-    public void deleteNode(int value) {
-        if (head == null)
-            return;
-
-        if (head.value == value) {
-            head = head.next;
-            return;
-        }
-        Node current = head;
-        while (current.next != null) {
-            if (current.next.value == value) {
-                current.next = current.next.next;
-                return;
-            }
-            current = current.next;
-
-        }
-        size--;
-    }
-
-    public void print() {
-        if (head == null) {
-            System.out.println("lista vacia \n");
-            return;
-        }
-        Node current = head;
-        while (current.next != null) {
-            System.out.println("Node ->" + current.value);
-            current = current.next;
-
-        }
-        System.out.println("Node ->" + current.value);
-        System.out.println("Fin de la lista\n");
+        lista = new ListaEnlazada();
+        lista.addNode(1);
+        lista.addNode(2);
+        lista.addNode(5);
+        lista.addNode(7);
+        lista.addNode(6);
     }
 
     public int getByPos(int position) {
-        int repeat = size - position;
-        if(repeat<0) return -1;
-        Node current = head;
+        int repeat = lista.getSize() - position;
+        if (repeat < 0)
+            return -1;
+        Node current = lista.head;
         for (int i = 0; i < repeat; i++) {
             current = current.next;
         }

@@ -4,10 +4,15 @@ import Materia.Models.Node;
 
 public class ListaEnlazada {
 
-    private Node head;
+    public Node head;
+    private int size;
 
     public ListaEnlazada() {
 
+    }
+
+    public int getSize() {
+        return size;
     }
 
     // Agregar nodos a la lista
@@ -23,6 +28,7 @@ public class ListaEnlazada {
         }
 
         current.next = new Node(value);
+        size++;
 
     }
 
@@ -43,6 +49,7 @@ public class ListaEnlazada {
             current = current.next;
 
         }
+        size--;
     }
 
     public void print() {
@@ -59,9 +66,4 @@ public class ListaEnlazada {
         System.out.println("Node ->" + current.value);
         System.out.println("Fin de la lista\n");
     }
-
-    // public int size(){
-    // return 1;
-    // }
-
 }
