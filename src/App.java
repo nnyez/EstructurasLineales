@@ -1,7 +1,12 @@
+import java.util.LinkedList;
+
 import Ejercicio_01_sign.SignValidator;
 import Ejercicio_02_sorting.StackSorter;
+import Ejercicio_03_linkedLists.LinkedListEjr;
 import Materia.Cola.GenericQeue;
 import Materia.Cola.Queues;
+import Materia.ListasEnlazadas.GenericLinkedList;
+import Materia.ListasEnlazadas.ListaEnlazada;
 import Materia.Models.Windows;
 import Materia.Pilas.GenericStack;
 import Materia.Pilas.Pila;
@@ -68,22 +73,45 @@ public class App {
         colaPantalla.addNode(new Windows("User Page", "/home/menu/user"));
         System.out.println("Estoy en la pantalla: \n\t -->" + colaPantalla.peek().getNombre());
 
-        System.out.println("El tamaño de la cola es: " + colaPantalla.getSize());
+        System.out.println("\nEl tamaño de la cola es: " + colaPantalla.getSize());
 
-        SignValidator s = new SignValidator();
-        System.out.println(
-                s.isValid("()({[]})"));
-        StackSorter st = new StackSorter();
-        Pila f = new Pila();
-        f.push(5);
-        f.push(51);
-        f.push(0);
-        f.push(41);
-        f.push(11);
-        f.push(23);
-        f.push(23);
-        f.push(47);
-        f.push(55);
-        st.sortStack(f);
+        // SignValidator s = new SignValidator();
+        // System.out.println(
+        // s.isValid("()({[]})"));
+        // StackSorter st = new StackSorter();
+        // Pila f = new Pila();
+        // f.push(5);
+        // f.push(51);
+        // f.push(0);
+        // f.push(41);
+        // f.push(11);
+        // f.push(23);
+        // f.push(23);
+        // f.push(47);
+        // f.push(55);
+        // st.sortStack(f);
+        System.out.println();
+        GenericLinkedList<String> linkedListWindow = new GenericLinkedList<>();
+        linkedListWindow.addNode("uno");
+        linkedListWindow.addNode("dos");
+        linkedListWindow.addNode("tres");
+        linkedListWindow.addNode("cuatro");
+        linkedListWindow.print();
+        linkedListWindow.deleteNode("tres");
+        linkedListWindow.print();
+        linkedListWindow.deleteNode("dos");
+        linkedListWindow.print();
+
+        System.out.println();
+
+        LinkedListEjr lista = new LinkedListEjr();
+        lista.addNode(1);
+        lista.addNode(2);
+        lista.addNode(5);
+        lista.addNode(7);
+        lista.addNode(6);
+
+        System.out.println("El valor en la pos: " + lista.getByPos(1));
+
     }
 }
